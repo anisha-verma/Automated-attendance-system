@@ -12,37 +12,37 @@ The objective of this project is to process live video-stream of students in a c
 - helper.py & mtcnn_detector.py : These files were taken from a GitHub repository(reference links below). These python files are a part of the face detection algorithm, that draw bounding boxes and crop out the faces.
 - training.ipynb : This notebook file (Google Colab) was used to train the faces of all students of the class by using customized VGG19 model. training.py is just the python version of this notebook.
 - gui.py : This python file contains the user interface code that is used to initiate the entire process.
-The model folder contains all the dependancies (params, json, caffemodel and prototxt) that are used my MTCNN detector.
-Input Video and Trained Model
-Face Detection.json
-Face Detection.json : This is an important .json file to authorise and intiate a link between Python and a specific Google Sheet. A YouTube link can be found in the acknowledgements that can guide you in generating your own .json file.
-Getting Started
-Prerequisites
+- The model folder contains all the dependancies (params, json, caffemodel and prototxt) that are used my MTCNN detector.
+- Input Video and Trained Model
+- Face Detection.json
+- Face Detection.json : This is an important .json file to authorise and intiate a link between Python and a specific Google Sheet. A YouTube link can be found in the acknowledgements that can guide you in generating your own .json file.
+##Getting Started
+#Prerequisites
 The local machine needs to be installed with Python 3.7 with all OpenCv, Tensorflow and Numpy Libraries. Training the images requires a lot of memory and GPU, which is easily available with Google Collaboratory (Linux Based). The MTCNN module implements bounding boxes and helps in extracting information of all the faces detected in an image.
 
-Built With
-OpenCV - Implementation of Algorithms
-Tkinter - GUI Implementation
-Numpy - Used to manage computations.
-Tensorflow - Used to train and build models.
-Gspread - Used to integrate Google Sheets with Python API.
-WorkFlow of the Program
+##Built With
+- OpenCV - Implementation of Algorithms
+- Tkinter - GUI Implementation
+- Numpy - Used to manage computations.
+- Tensorflow - Used to train and build models.
+- Gspread - Used to integrate Google Sheets with Python API.
+##WorkFlow of the Program
 The whole prototype is made up of several codes which are interlinked to each other in a sequential way.
 
-Triggering the GUI first launches the code which establishes connection with Google Sheets through GSpread library of Google.
-The Google Spreadsheet gets populated with a list of all students enrolled in the class and their attendance gets marked as 0 initially.
-Now the video stream passes through the program that uses OpenCV to extract few frames from the video.
-These images flow through the MTCNN model, that extracts faces and puts them into a folder.
-This folder is read by the pre-trained VGG19 model and predictions are done.
-A list gets created containing predictions from all the frames.
-This list passes through the Python - Gspread connection and attendance of the detected faces are updated to 1.
-Acknowledgements
+- Triggering the GUI first launches the code which establishes connection with Google Sheets through GSpread library of Google.
+- The Google Spreadsheet gets populated with a list of all students enrolled in the class and their attendance gets marked as 0 initially.
+- Now the video stream passes through the program that uses OpenCV to extract few frames from the video.
+- These images flow through the MTCNN model, that extracts faces and puts them into a folder.
+-This folder is read by the pre-trained VGG19 model and predictions are done.
+- A list gets created containing predictions from all the frames.
+- This list passes through the Python - Gspread connection and attendance of the detected faces are updated to 1.
+##Acknowledgements
 The following blogs were helpful for this project:
 
-Face Detection
-Python-Google Sheets Integration
-Understanding CNN Architecture
-Refer to the following papers for deeper understanding:
+- [Face Detection](https://github.com/YYuanAnyVision/mxnet_mtcnn_face_detection)
+- [Python-Google Sheets Integration](https://www.youtube.com/watch?v=cnPlKLEGR7E&t=524s)
+- [Understanding CNN Architecture](https://www.kaggle.com/uysimty/keras-cnn-dog-or-cat-classification)
+#Refer to the following papers for deeper understanding:
 
-Mostafa Mehdipour Ghazi and Hazim Kemal Ekenel, "A Comprehensive Analysis of Deep Learning Based Representation for Face Recognition", The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, IEEE, 2016.
-Shubhobrata Bhattacharya, Gowtham Sandeep Nainala, Prosenjit Das and Aurobinda Routray, "Smart Attendance Monitoring System (SAMS): A Face Recognition Based Attendance System for Classroom Environment", 2018 IEEE 18th International Conference on Advanced Learning Technolo- gies (ICALT), IEEE, July 2018.
+- Mostafa Mehdipour Ghazi and Hazim Kemal Ekenel, "A Comprehensive Analysis of Deep Learning Based Representation for Face Recognition", The IEEE Conference on Computer Vision and Pattern Recognition (CVPR) Workshops, IEEE, 2016.
+- Shubhobrata Bhattacharya, Gowtham Sandeep Nainala, Prosenjit Das and Aurobinda Routray, "Smart Attendance Monitoring System (SAMS): A Face Recognition Based Attendance System for Classroom Environment", 2018 IEEE 18th International Conference on Advanced Learning Technolo- gies (ICALT), IEEE, July 2018.
